@@ -1,0 +1,33 @@
+<ion-view view-title="My Items">
+<div class="float-button" ng-style="me" ng-mouseover="me={'opacity':'1.0'}" ng-mouseleave="me={'opacity':'0.5'}" ng-mouseup="addItem()">
+  <span class="height-fix">
+    <a class="content">
+      <i class="ion-plus-round"> </i>
+    </a>
+  </span>
+</div>
+<ion-nav-buttons side="primary">
+	<button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete"></button>    
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+	<button class="button {{goods_style}}" ng-click="chooseItem(1)"><b>Goods</b></button>&nbsp;
+    <button class="button {{skills_style}}" ng-click="chooseItem(2)"><b>Skills</b></button>&nbsp; 
+    <button class="button {{drafts_style}}" ng-click="chooseItem(3)"><b>Drafts</b></button>
+</ion-nav-buttons>
+<ion-content>
+<ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+  <ion-list show-delete="data.showDelete">
+	<ion-item class="item-thumbnail-left item-icon-right item-remove-animate" collection-repeat="item in items">
+		<ion-delete-button class="ion-minus-circled" ng-click="delete(item.code)"></ion-delete-button>
+		<img ng-src="{{item.file}}">
+        <a class="icon ion-eye" ng-style="open" ng-mouseover="open={'cursor':'pointer'}" ng-click="showDetail(item.code)"></a>
+		<h2 style="color: #387ef5;">{{item.title}}</h2>
+		<p>Category: {{item.category}}</p>
+		<button class="button button-small button-clear button-energized" ng-click="draft(item.code)">{{item.textStatus}}</button>
+    </ion-item>
+</ion-list>
+</ion-content>
+</ion-view>

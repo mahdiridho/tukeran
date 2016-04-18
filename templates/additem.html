@@ -1,0 +1,70 @@
+<ion-view view-title="Add Item">
+        <ion-content class="has-header">
+		  <form name="additem" novalidate>
+			  <div class="list list-inset">
+				  <div class="row">
+					<div class="col item item-thumbnail-left">
+						<img src="{{img1}}" ng-click="getPic(1)">
+						<div ng-style="cover1" class="cover"></div>
+						<div ng-style="rmImage1" class="rmImage" ng-click="rmImage(1)">
+							<span class="height-fix">
+								<a class="content">
+									<i class="ion-minus-round"></i>
+								</a>
+							</span>
+						</div>
+						<ion-spinner style="left: 30px; top: 30px;" ng-style="spin1" class="spin spinner-calm" icon="android"></ion-spinner>
+					</div>
+					<div class="col item item-thumbnail-left">
+						<img src="{{img2}}" ng-click="getPic(2)">
+						<div ng-style="cover2" class="cover"></div>
+						<div ng-style="rmImage2" class="rmImage" ng-click="rmImage(2)">
+							<span class="height-fix">
+								<a class="content">
+									<i class="ion-minus-round"></i>
+								</a>
+							</span>
+						</div>
+						<ion-spinner style="left: 30px; top: 30px;" ng-style="spin1" class="spin spinner-calm" icon="android"></ion-spinner>
+					</div>
+					<div class="col item item-thumbnail-left">
+						<img src="{{img3}}" ng-click="getPic(3)">
+						<div ng-style="cover3" class="cover"></div>
+						<div ng-style="rmImage3" class="rmImage" ng-click="rmImage(3)">
+							<span class="height-fix">
+								<a class="content">
+									<i class="ion-minus-round"></i>
+								</a>
+							</span>
+						</div>
+						<ion-spinner style="left: 30px; top: 30px;" ng-style="spin1" class="spin spinner-calm" icon="android"></ion-spinner>
+					</div>
+				  </div>
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Title</span>
+					  <input type="text" placeholder="Title" name="title" ng-model="item.title" maxlength="50" required>
+				  </label>
+				  <label class="item">
+					<div class="input-label">
+					  Type
+					</div>
+					  <ion-radio ng-repeat="type in typeList" ng-value="type.value" ng-model="item.type" ng-change="typeChange(type.value)"> {{ type.text }}</ion-radio>
+				  </label>
+				  <label class="item item-input item-select">
+					<div class="input-label">
+					  Category
+					</div>
+					<select name="category" ng-model="item.category" ng-options="category.name for category in categories track by category.code">
+					  <option value="" selected hidden />
+					</select>
+				  </label>
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Detail Description</span>
+					  <textarea placeholder="Detail description" rows="10" ng-model="item.description" name="description" required></textarea>
+				  </label>
+			  </div>
+			  <button class="button button-block button-positive" ng-click="saveItem(1)" ng-disabled="additem.$invalid">Publish</button>
+			  <button class="button button-block button-positive" ng-click="saveItem(2)" ng-disabled="additem.$invalid">Save</button></form>
+			  <button class="button button-block button-stable" ng-click="cancelItem()">Cancel</button>
+        </ion-content>
+		</ion-view>

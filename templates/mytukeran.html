@@ -1,0 +1,25 @@
+<ion-view view-title="My Tukeran">
+<ion-nav-buttons side="primary">
+	<button class="button {{in_style}} icon ion-reply" ng-click="chooseTukeran(1)"></button>&nbsp;
+    <button class="button {{out_style}} icon ion-forward" ng-click="chooseTukeran(2)"></button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+	<button class="button {{deal_style}} icon ion-checkmark-circled" ng-click="chooseTukeran(3)"></button>&nbsp;
+	<button class="button {{reject_style}} icon ion-close-circled" ng-click="chooseTukeran(4)"></button>
+</ion-nav-buttons>
+<ion-content>
+<ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+  <ion-list>
+	<ion-item class="item item-thumbnail-left item-icon-right" collection-repeat="tukeran in tukerans">
+		<img src="{{tukeran.file}}">
+		<a ng-click='detailItem(tukeran.code)'><h2 style="color: #387ef5; font-weight: bold;">{{tukeran.title}}</h2></a>
+		<p style="font-style: italic; color: {{tukeran.color}};">{{tukeran.status}}</p>
+		<p style="font-style: italic; color: #886aea;" ng-click="showBarter(tukeran.idTukeran)">Barter for {{tukeran.numBarter}}</p>
+		<a class="icon" ng-click="showBarter(tukeran.idTukeran)"><img src="img/icon.png" style="width: 30px; display: block; margin-left: auto; margin-right: auto;"></a>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-view>

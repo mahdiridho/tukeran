@@ -1,0 +1,14 @@
+<div class="modal image-modal transparent" on-swipe-down="closeModal()">
+  <ion-slide-box active-slide="activeSlide">
+    <ion-slide ng-repeat="itemImage in iImages">
+
+      <ion-scroll direction="xy"
+      zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%"
+      delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+
+      <div class="image" style="background-image: url( {{itemImage.src}} )"></div>
+
+    </ion-scroll>
+  </ion-slide>
+</ion-slide-box>
+</div>

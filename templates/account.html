@@ -1,0 +1,84 @@
+<ion-view view-title="Account">
+  <ion-content>
+		<ion-list>
+		<span class="item item-thumbnail-left item-button-right">
+		<img ng-src="{{ProfilePic}}" ng-click="changePic()">
+		<h1>{{Name}}</h1>
+		<button class="button button-clear button-positive" ng-click="editProfile()">Edit</button>
+		<ion-spinner ng-style="waiting" style="left: 35px; top: 35px;" class="spin spinner-calm" icon="android"></ion-spinner>
+		</span>
+		<span class="item item-icon-left">
+		<i class="icon ion-email"></i>{{Email}}
+		</span>
+		<span class="item item-icon-left">
+		<i class="icon ion-android-phone-portrait"></i>{{Phone}}&nbsp;
+		</span>
+		<span class="item item-icon-left">
+		<i class="icon ion-social-whatsapp"></i>{{Whatsapp}}&nbsp;
+		</span>
+		<span class="item item-icon-left">
+		<i class="icon ion-ios-location"></i>{{Region}}&nbsp;
+		</span><p></p>
+		<button class="button button-block button-outline button-positive" ng-click="changePassword()">
+		Change Password
+		</button>
+		<button class="button button-block button-assertive" ng-click="logout()">
+		Logout
+		</button>
+		</ion-list>
+  </ion-content>
+</ion-view>
+<script id="Profile.html" type="text/ng-template">
+	<div class="modal" ng-controller="profileModal">
+		<header class="bar bar-header bar-assertive">
+          <h1 class="title">Update Profile</h1>
+        </header>
+        <ion-content class="has-header">
+		  <form name="editprofile" novalidate>
+			  <div class="list list-inset">
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Name</span>
+					  <input type="text" placeholder="Name" name="name" ng-model="data.name" maxlength="10" required>
+				  </label>
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Phone</span>
+					  <input type="tel" placeholder="Phone" name="phone" ng-model="data.phone" maxlength="15" required>
+				  </label>
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Whatsapp</span>
+					  <input type="tel" placeholder="Whatsapp" name="whatsapp" ng-model="data.whatsapp" maxlength="15" required>
+				  </label>
+				  <label class="item item-input item-select">
+					<div class="input-label">
+					  Region
+					</div>
+					<select name="region" ng-model="data.region" ng-options="region.name for region in regions track by region.code">
+					  <option value="" selected hidden />
+					</select>
+				  </label>
+			  </div>
+			  <button class="button button-block button-positive" ng-click="updateProfile()" ng-disabled="editprofile.$invalid">Update</button></form>
+        </ion-content>
+  </div>
+</script>
+<script id="Password.html" type="text/ng-template">
+	<div class="modal" ng-controller="passwordModal">
+		<header class="bar bar-header bar-assertive">
+          <h1 class="title">Change Password</h1>
+        </header>
+        <ion-content class="has-header">
+		  <form name="changepassword" novalidate>
+			  <div class="list list-inset">
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Password</span>
+					  <input type="password" placeholder="Password" name="password1" ng-model="data.password1" maxlength="10" required>
+				  </label>
+				  <label class="item item-input item-floating-label">
+					  <span class="input-label">Confirm Password</span>
+					  <input type="password" placeholder="Confirm Password" name="password2" ng-model="data.password2" maxlength="10" required>
+				  </label>
+			  </div>
+			  <button class="button button-block button-positive" ng-click="changePassword()" ng-disabled="changepassword.$invalid || data.password1 != data.password2">Change</button></form>
+        </ion-content>
+  </div>
+</script>

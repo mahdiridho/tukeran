@@ -1,0 +1,22 @@
+<ion-view view-title="Sign-In" name="signin-view" animation="slide-in-up">
+  <ion-content class="padding"><form name="loginform" novalidate>
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="email" name="username" placeholder="User Email" ng-model="login.username" maxlength="40" required>
+          </label>
+			  <span style="color:red" ng-show="loginform.username.$dirty && loginform.username.$invalid">
+			  <span ng-show="loginform.username.$error.required">Email is required.</span>
+			  <span ng-show="loginform.username.$error.email">Invalid email address.</span></span>
+          <label class="item item-input">
+              <input type="password" name="password" placeholder="Password" ng-model="login.password" maxlength="10" required>
+          </label>
+			  <span style="color:red" ng-show="loginform.password.$dirty && loginform.password.$invalid">
+			  <span ng-show="loginform.password.$error.required">Password is required.</span></span>
+      </div>
+      <p class="text-right">
+        <a ui-sref="forgot">Forgot password</a>
+      </p>
+      <button class="button button-block button-positive" ng-click="signin()" ng-disabled="loginform.$invalid">Sign-In</button></form>
+      <button class="button button-block button-calm" ng-click="signup()">Sign-up</button>
+  </ion-content>
+</ion-view>

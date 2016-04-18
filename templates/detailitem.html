@@ -1,0 +1,56 @@
+<style>
+  .scroll-view.scroll-xy {
+    overflow-x: hidden;
+    overflow-y: hidden; }
+</style>
+<ion-view view-title="Detail Item">
+<ion-nav-buttons side="primary">
+	<button class="button button-icon icon ion-ios-arrow-left" ng-click="back()">Back</button>    
+</ion-nav-buttons>
+<ion-content>
+	<div class="list card">
+		<div class="item">
+			<h2 style="font-weight: bold;">{{title}}</h2>
+			<p style="color:#aaa;">Category >> {{category}}</p>
+			<p style="color:#aaa;">{{date}}</p>
+		</div>
+		<a class="item item-list-detail">
+		  <ion-scroll direction="x">
+			<img ng-repeat="itemImage in iImages" ng-src="{{itemImage.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+		  </ion-scroll>
+		</a>
+		<div class="item item-body">
+			<pre style="font-family: Segoe UI, sans-serif;">{{description}}</pre>
+			<p><a href="#" class="subdued">{{views}} Views</a></p>
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</ion-content>
+</ion-view>
+<div class="bar bar-footer bar-positive">
+	<a href="tel:{{phone}}" class="button icon ion-iphone"></a>
+	<a href="sms://{{phone}}?body=Tukeran:%20{{title}}" class="button icon ion-android-textsms"></a>
+	<a href="whatsapp://send?text=Tukeran:%20{{title}}" class="button icon ion-social-whatsapp-outline"></a>
+	<a href="mailto:{{email}}?Subject=Tukeran:%20{{title}}" class="button icon ion-ios-email-outline"></a>
+	<a ng-click="tukeranItem({{code}})" class="button icon ion-arrow-swap"></a>
+</div>
+
+<script id="TukeranItem.html" type="text/ng-template">
+	<div class="modal">
+		<ion-header-bar class="bar-light">
+		  <button class="button button-balanced icon ion-checkmark" ng-click="barterItem()"></button>
+          <h1 class="title">Choose your item, 1 or more</h1>
+		  <button class="button button-assertive icon ion-close" ng-click="cancelBarter()"></button>
+		</ion-header-bar>
+        <ion-content class="has-header">
+			<ion-list>
+				<ion-item class="item-avatar item-icon-right" ng-repeat="list in lists" ng-click="choose(list.item)">
+					<img src="{{list.file}}">
+					<h2 style="color: #387ef5;">{{list.title}}</h2>
+					<p>Category: {{list.category}}</p>
+					<i id="{{list.item}}" style="visibility:hidden" class="icon balanced ion-checkmark-circled"></i>
+				</ion-item>
+			</ion-list>
+        </ion-content>
+  </div>
+</script>

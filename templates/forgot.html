@@ -1,0 +1,13 @@
+<ion-view view-title="Sign-In" name="forgot-view">
+  <ion-content class="padding"><form name="fpassword" novalidate>
+      <p>
+        New random password will be sent to your email.
+      </p>
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="email" placeholder="Email" ng-model="resetpw.email" required>
+          </label>
+      </div>
+      <button class="button button-block button-positive" ng-click="randpw()" ng-disabled="fpassword.$invalid">Send</button></form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<style>
+  .scroll-view.scroll-xy {
+    overflow-x: hidden;
+    overflow-y: hidden; }
+</style>
+	<div class="modal">
+		<header class="bar bar-header bar-light">
+			<h1 class="title">Item Detail</h1>
+			<button class="button button-icon icon ion-ios-arrow-left" ng-click="back()">Back</button>
+		</header>
+		<ion-content class="has-header">
+			<div class="list card">
+				<div class="item">
+					<h2 style="font-weight: bold;">{{title}}</h2>
+					<p style="color:#aaa;">Category >> {{category}}</p>
+					<p style="color:#aaa;">{{date}}</p>
+				</div>
+				<a class="item item-list-detail">
+				  <ion-scroll direction="x">
+					<img ng-repeat="itemImage in iImages" ng-src="{{itemImage.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+				  </ion-scroll>
+				</a>
+				<div class="item item-body">
+					<pre style="font-family: Segoe UI, sans-serif;">{{description}}</pre>
+					<p><a href="#" class="subdued">{{views}} Views</a></p>
+				</div>
+			</div>
+		</ion-content>
+  </div>

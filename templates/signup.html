@@ -1,0 +1,27 @@
+<ion-view view-title="Sign-Up" name="signup-view">
+  <ion-content class="padding"><form name="register" novalidate>
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="email" placeholder="Email" name="email" ng-model="data.email" maxlength="40" required>
+          </label>
+			  <span style="color:red" ng-show="register.email.$dirty && register.email.$invalid">
+			  <span ng-show="register.email.$error.required">Email is required.</span>
+			  <span ng-show="register.email.$error.email">Invalid email address.</span></span>
+          <label class="item item-input">
+              <input type="text" placeholder="Name" name="name" ng-model="data.name" maxlength="10" required>
+          </label>
+			  <span style="color:red" ng-show="register.name.$dirty && register.name.$invalid">
+			  <span ng-show="register.name.$error.required">Name is required.</span></span>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" name="password1" ng-model="data.password1" maxlength="10" required>
+          </label>
+			  <span style="color:red" ng-show="register.password1.$dirty && register.password1.$invalid">
+			  <span ng-show="register.password1.$error.required">Password is required.</span></span>
+          <label class="item item-input">
+              <input type="password" placeholder="Confirm Password" name="password2" ng-model="data.password2" maxlength="10" required>
+          </label>
+			  <span style="color:red" ng-show="data.password1 != data.password2">Password is not match.</span>
+      </div>
+	  <button class="button button-block button-positive" ng-click="send()" ng-disabled="register.$invalid || data.password1 != data.password2">Send</button></form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-view view-title="Home" animation="slide-in-up">
+  <ion-content class="padding">
+    <h2>Welcome to Tukeran</h2>
+	<p>Author: Mahdi Ridho<br>Version: 1.0</p>
+    <p>
+    This is the New one social transactional starter without money. What you have (Skills or Goods) is your asset to get what you want. You know, No money It's fine.. Note it!
+    </p>
+    <p>
+	Choose the following button to start your search list or share your items :
+    </p>
+	<p>&nbsp;</p>
+	<div class="row">
+		<div class="col col-50">
+			<div class="home-button good" ng-click="find('Goods')">
+			  <span class="height-fix">
+				<a class="content">
+				  Find Goods<br>
+				  <img src="img/goods.png" style="width: 60px">
+				</a>
+			  </span>
+			</div>
+		</div>
+		<div class="col col-50">
+			<div class="home-button skill" ng-click="find('Skills')">
+			  <span class="height-fix">
+				<a class="content">
+				  Find Skills<br>
+				  <img src="img/skills.png" style="width: 50px">
+				</a>
+			  </span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col col-100">
+			<div class="home-button myitem" ng-click="go('menu.myitem')">
+			  <span class="height-fix">
+				<a class="content">
+				  My Item<br>
+				  <img src="img/myitem.png" style="width: 40px">
+				</a>
+			  </span>
+			</div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>
